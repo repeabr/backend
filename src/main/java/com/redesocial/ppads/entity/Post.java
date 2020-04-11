@@ -19,4 +19,6 @@ public class Post {
     private Integer id;
 
     private Publicacao publicacao;
+
+    private String emailAutor;
 }
