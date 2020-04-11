@@ -14,22 +14,25 @@ public class PostController {
     private PostService postService;
 
     @GetMapping("/listar")
-    private List<Post> listaPost(){
+    public List<Post> listaPost(){
         return postService.readAll();
     }
 
     @GetMapping("/listarPorId/{id}")
-    private Post postPorId(@PathVariable Integer id){
+    public Post postPorId(@PathVariable Integer id){
         return postService.readById(id);
     }
 
+    @GetMapping("/listarPorEmail/{emai}")
+    public List<Post> postsPorEmail(@PathVariable String email) { return postService.readByEmail(email); }
+
     @PostMapping("/criar")
-    private Post criarPost(@RequestBody Post post){
+    public Post criarPost(@RequestBody Post post){
         return postService.create(post);
     }
 
     @DeleteMapping("/deletar")
-    private boolean deletarPost(@PathVariable Integer id){
+    public boolean deletarPost(@PathVariable Integer id){
         return postService.delete(id);
     }
 }

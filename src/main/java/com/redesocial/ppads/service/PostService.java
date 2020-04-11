@@ -34,4 +34,8 @@ public class PostService {
         }
         return false;
     }
+
+    public List<Post> readByEmail(String email) {
+        return postRepository.findByEmailAutor(email);
+    }
 }
