@@ -23,7 +23,7 @@ public class PostController {
         return postService.readById(id);
     }
 
-    @GetMapping("/listarPorEmail/{emai}")
+    @GetMapping("/listarPorEmail/{email}")
     public List<Post> postsPorEmail(@PathVariable String email) { return postService.readByEmail(email); }
 
     @PostMapping("/criar")
