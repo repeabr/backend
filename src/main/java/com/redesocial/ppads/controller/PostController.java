@@ -32,12 +32,12 @@ public class PostController {
         return postService.create(post);
     }
 
-    @PutMapping("editarPost")
+    @PutMapping("/editarPost")
     public Post updatePost(@RequestBody Post post){
         return postService.atualizaPost(post);
     }
 
-    @DeleteMapping("deletaPost/{idPost}")
+    @DeleteMapping("/deletaPost/{idPost}")
     public boolean delelePost(@PathVariable Integer idPost){
         return postService.delete(idPost);
     }
