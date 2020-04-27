@@ -32,8 +32,14 @@ public class PostController {
         return postService.create(post);
     }
 
-    @DeleteMapping("/deletar")
-    public boolean deletarPost(@PathVariable Integer id){
-        return postService.delete(id);
+    @PutMapping("editarPost")
+    public Post updatePost(@RequestBody Post post){
+        return postService.atualizaPost(post);
     }
+
+    @DeleteMapping("deletaPost/{idPost}")
+    public boolean delelePost(@PathVariable Integer idPost){
+        return postService.delete(idPost);
+    }
+
 }

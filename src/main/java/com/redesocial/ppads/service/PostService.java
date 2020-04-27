@@ -38,4 +38,14 @@ public class PostService {
     public List<Post> readByEmail(String email) {
         return postRepository.findByEmailAutor(email);
     }
+
+    public Post atualizaPost(Post post) {
+        if (postRepository.existsById(post.getId())){
+            Post post_update = postRepository.findById(post.getId()).get();
+            post_update.setPublicacao(post.getPublicacao());
+            post_update.setCurtidas(post.getCurtidas());
+            return postRepository.save(post_update);
+        }
+        return postRepository.save(post);
+    }
 }
