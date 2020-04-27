@@ -22,7 +22,7 @@ public class PostService {
 
     public Post readById(Integer id){
         if(postRepository.existsById(id)){
-            postRepository.findById(id);
+            return postRepository.findById(id).get();
         }
         return null;
     }
