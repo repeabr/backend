@@ -25,10 +25,10 @@ public class CurtidaService {
     }
 
     public boolean verificaCurtida(Integer idUsuario, Integer idPost) {
-        List<Curtida> curtidas = curtidaRepository.findByIdPostCurtido(idPost);
+        List<Curtida> curtidas = curtidaRepository.findAll();
         if (curtidas != null){
             for (Curtida c: curtidas) {
-                if(c.getIdUsuarioCurtiu().equals(idUsuario)){
+                if(c.getIdUsuarioCurtiu().equals(idUsuario) && c.getIdPostCurtido().equals(idPost)){
                     return true;
                 }
             }
