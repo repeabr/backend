@@ -29,11 +29,6 @@ public class CurtidaController {
         return curtidaService.readById(id);
     }
 
-    @DeleteMapping("removeCurtida/{idPost}")
-    public boolean removeCurtida(@PathVariable Integer idPost){
-        return curtidaService.removeCurtida(idPost);
-    }
-
     @GetMapping("verificaCurtida/{idUsuario}/{idPost}")
     public boolean verificaCurtida(@PathVariable Integer idUsuario, @PathVariable Integer idPost){
         return curtidaService.verificaCurtida(idUsuario, idPost);

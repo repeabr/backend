@@ -24,20 +24,6 @@ public class CurtidaService {
         return curtidaRepository.findById(id).get();
     }
 
-    public Curtida readByIdPostCurtido(Integer idPostCurtido){
-        return curtidaRepository.findByIdPost(idPostCurtido);
-    }
-
-    public boolean removeCurtida(Integer idPost){
-        if(readByIdPostCurtido(idPost) != null){
-            Curtida c = curtidaRepository.findByIdPost(idPost);
-            curtidaRepository.delete(c);
-            return true;
-        }
-
-        return false;
-    }
-
     public boolean verificaCurtida(Integer idUsuario, Integer idPost) {
         List<Curtida> curtidas = curtidaRepository.findByIdPostCurtido(idPost);
         if (curtidas != null){
