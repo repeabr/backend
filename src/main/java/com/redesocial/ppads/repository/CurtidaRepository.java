@@ -4,7 +4,11 @@ import com.redesocial.ppads.entity.Curtida;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CurtidaRepository extends JpaRepository<Curtida, Integer> {
-    Curtida findByIdPostCurtido(Integer idPostCurtido);
+    List<Curtida> findByIdPostCurtido(Integer idPostCurtido);
+
+    Curtida findByIdPost(Integer idPost);
 }
