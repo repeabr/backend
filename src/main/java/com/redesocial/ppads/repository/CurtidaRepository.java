@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface CurtidaRepository extends JpaRepository<Curtida, Integer> {
     List<Curtida> findByIdPostCurtido(Integer idPostCurtido);
+    Curtida findByIdUsuarioCurtiuAndIdPostCurtido(Integer idUsuarioCurtiu, Integer idPostCurtido);
 }

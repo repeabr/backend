@@ -25,25 +25,18 @@ public class CurtidaService {
     }
 
     public boolean verificaCurtida(Integer idUsuario, Integer idPost) {
-        List<Curtida> curtidas = curtidaRepository.findAll();
-        if (curtidas != null){
-            for (Curtida c: curtidas) {
-                if(c.getIdUsuarioCurtiu().equals(idUsuario) && c.getIdPostCurtido().equals(idPost)){
-                    return true;
-                }
-            }
+        Curtida curtida = curtidaRepository.findByIdUsuarioCurtiuAndIdPostCurtido(idUsuario,idPost);
+        if(curtida.getIdPostCurtido().equals(idPost) && curtida.getIdUsuarioCurtiu().equals(idUsuario)){
+            return true;
         }
         return false;
     }
+
     public boolean remove(Integer idUsuario, Integer idPost) {
-        List<Curtida> curtidas = curtidaRepository.findAll();
-        if (curtidas != null){
-            for (Curtida c: curtidas) {
-                if(c.getIdUsuarioCurtiu().equals(idUsuario) && c.getIdPostCurtido().equals(idPost)){
-                    curtidaRepository.delete(c);
-                    return true;
-                }
-            }
+        Curtida curtida = curtidaRepository.findByIdUsuarioCurtiuAndIdPostCurtido(idUsuario,idPost);
+        if(curtida.getIdPostCurtido().equals(idPost) && curtida.getIdUsuarioCurtiu().equals(idUsuario)){
+            curtidaRepository.delete(curtida);
+            return true;
         }
         return false;
     }
