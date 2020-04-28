@@ -35,4 +35,16 @@ public class CurtidaService {
         }
         return false;
     }
+    public boolean remove(Integer idUsuario, Integer idPost) {
+        List<Curtida> curtidas = curtidaRepository.findAll();
+        if (curtidas != null){
+            for (Curtida c: curtidas) {
+                if(c.getIdUsuarioCurtiu().equals(idUsuario) && c.getIdPostCurtido().equals(idPost)){
+                    curtidaRepository.delete(c);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
